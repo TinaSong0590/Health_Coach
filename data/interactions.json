@@ -1,0 +1,233 @@
+{
+  "conflict_rules": [
+    {
+      "type": "hard_conflict",
+      "severity": "critical",
+      "description": "硬冲突：严重禁忌，必须避免同时使用",
+      "rules": [
+        {
+          "supplements": ["iron", "calcium"],
+          "reason": "铁和钙会相互竞争吸收，导致两者生物利用度显著降低",
+          "recommendation": "间隔至少2小时服用，或选择不同时间（如铁早餐后，钙睡前）"
+        },
+        {
+          "supplements": ["iron", "zinc"],
+          "reason": "铁和锌竞争相同的转运蛋白，高剂量铁会抑制锌的吸收",
+          "recommendation": "间隔至少2小时服用，或在医师指导下调整剂量"
+        },
+        {
+          "supplements": ["vitamin_e", "omega3"],
+          "reason": "高剂量维生素E可能增强Omega-3的血液稀释效果",
+          "recommendation": "监测凝血指标，特别是正在服用抗凝药物时"
+        },
+        {
+          "supplements": ["vitamin_k", "blood_thinners"],
+          "reason": "维生素K会拮抗华法林等抗凝药物的效果",
+          "recommendation": "服用抗凝药物时需在医生监督下严格控制维生素K摄入"
+        },
+        {
+          "supplements": ["melatonin", "antidepressants"],
+          "reason": "褪黑素可能增强某些抗抑郁药物的镇静效果",
+          "recommendation": "咨询医师，可能需要调整剂量"
+        }
+      ]
+    },
+    {
+      "type": "soft_conflict",
+      "severity": "moderate",
+      "description": "软冲突：需要注意但可以优化搭配",
+      "rules": [
+        {
+          "supplements": ["vitamin_d3", "vitamin_k2"],
+          "reason": "维生素D促进钙吸收，需要维生素K2引导钙进入骨骼",
+          "recommendation": "建议同时服用以形成协同效应，比例建议为10:1至100:1（D3:K2）"
+        },
+        {
+          "supplements": ["magnesium", "calcium"],
+          "reason": "镁和钙需要保持适当比例（约2:1）才能最佳吸收",
+          "recommendation": "确保镁摄入充足，过量钙而镁不足可能导致肌肉痉挛"
+        },
+        {
+          "supplements": ["b_complex", "zinc"],
+          "reason": "高剂量B族维生素（特别是B6）长期使用可能影响锌平衡",
+          "recommendation": "定期监测锌水平，必要时补充"
+        },
+        {
+          "supplements": ["vitamin_c", "iron"],
+          "reason": "维生素C增强铁的吸收（特别是非血红素铁）",
+          "recommendation": "建议同时服用以提高铁的生物利用度"
+        },
+        {
+          "supplements": ["probiotics", "antibiotics"],
+          "reason": "抗生素会杀死益生菌，降低效果",
+          "recommendation": "益生菌应在抗生素服用后2小时或停药后继续使用"
+        }
+      ]
+    },
+    {
+      "type": "stage_contraindication",
+      "severity": "high",
+      "description": "阶段禁忌：特定阶段禁用或需谨慎使用",
+      "rules": [
+        {
+          "stage": "preconception",
+          "supplements": ["melatonin", "coq10", "curcumin", "rhodiola", "carnitine"],
+          "reason": "备孕阶段避免使用可能影响激素平衡或缺乏安全性数据的补充剂",
+          "recommendation": "备孕期间优先使用安全性明确的营养素（如叶酸、DHA、维生素D）"
+        },
+        {
+          "stage": "preconception",
+          "required": ["folate", "omega3"],
+          "reason": "备孕关键营养素，预防神经管缺陷和支持胎儿发育",
+          "recommendation": "建议在备孕前3个月开始补充活性叶酸400-800mcg"
+        },
+        {
+          "stage": "jetlag_travel",
+          "supplements": ["iron", "zinc"],
+          "reason": "时差恢复期间消化功能可能受影响，避免可能引起胃肠道不适的补充剂",
+          "recommendation": "暂停或减少使用，专注于睡眠调节和能量支持"
+        },
+        {
+          "stage": "jetlag_travel",
+          "recommended": ["melatonin", "magnesium", "b_complex", "rhodiola"],
+          "reason": "支持昼夜节律调整和疲劳恢复",
+          "recommendation": "根据飞行方向调整褪黑素服用时间"
+        },
+        {
+          "stage": "muscle_gain",
+          "supplements": ["melatonin"],
+          "reason": "肌酸和褪黑素可能存在轻微拮抗，影响恢复效果",
+          "recommendation": "分开时间使用，或专注于运动后恢复策略"
+        },
+        {
+          "stage": "muscle_gain",
+          "recommended": ["creatine", "protein_powder", "magnesium", "electrolytes", "vitamin_d3"],
+          "reason": "支持肌肉合成、恢复和力量表现",
+          "recommendation": "肌酸建议在训练前后服用，蛋白质粉在训练后30分钟内"
+        },
+        {
+          "stage": "fat_loss",
+          "recommended": ["carnitine", "curcumin", "omega3"],
+          "reason": "支持代谢、抗炎和脂肪氧化",
+          "recommendation": "结合运动和饮食计划效果更佳"
+        },
+        {
+          "stage": "recovery",
+          "recommended": ["protein_powder", "magnesium", "omega3", "vitamin_c", "probiotics"],
+          "reason": "支持组织修复、免疫功能和整体恢复",
+          "recommendation": "根据恢复强度调整剂量"
+        }
+      ]
+    },
+    {
+      "type": "genetic_interaction",
+      "severity": "variable",
+      "description": "基因相关：基于基因型调整补充策略",
+      "rules": [
+        {
+          "gene": "MTHFR",
+          "variants": ["C677T", "A1298C"],
+          "impact": "降低叶酸代谢效率",
+          "supplement_adjustment": {
+            "folate": {
+              "action": "use_active_form",
+              "recommendation": "使用L-5-甲基四氢叶酸而非普通叶酸",
+              "dose_multiplier": 1.5
+            },
+            "b12": {
+              "action": "co_supplement",
+              "recommendation": "同时补充活性B12（甲钴胺）"
+            }
+          }
+        },
+        {
+          "gene": "VDR",
+          "variants": ["FokI", "TaqI", "BsmI"],
+          "impact": "维生素D受体功能变异，影响维生素D利用",
+          "supplement_adjustment": {
+            "vitamin_d3": {
+              "action": "increase_dose",
+              "recommendation": "可能需要更高剂量维生素D3（如3000-5000 IU）",
+              "monitoring": "定期检测血清25(OH)D水平"
+            },
+            "k2": {
+              "action": "co_supplement",
+              "recommendation": "同时补充维生素K2以优化钙代谢"
+            }
+          }
+        },
+        {
+          "gene": "FADS1/FADS2",
+          "variants": ["rs174546", "rs174537"],
+          "impact": "降低Omega-3转化效率",
+          "supplement_adjustment": {
+            "omega3": {
+              "action": "increase_dose",
+              "recommendation": "可能需要更高剂量EPA+DHA（2000-3000mg）",
+              "preferred_form": "选择预形成的EPA/DHA而非ALA"
+            }
+          }
+        },
+        {
+          "gene": "HFE",
+          "variants": ["C282Y", "H63D"],
+          "impact": "血色病风险，铁代谢异常",
+          "supplement_adjustment": {
+            "iron": {
+              "action": "avoid",
+              "recommendation": "避免补充铁剂，定期监测铁蛋白水平",
+              "testing": "血清铁蛋白、转铁蛋白饱和度"
+            },
+            "vitamin_c": {
+              "action": "moderate",
+              "recommendation": "避免高剂量维生素C（限制在500mg以下）"
+            }
+          }
+        },
+        {
+          "gene": "NQO1",
+          "variants": ["rs1800566"],
+          "impact": "辅酶Q10代谢效率降低",
+          "supplement_adjustment": {
+            "coq10": {
+              "action": "increase_dose",
+              "recommendation": "可能需要更高剂量CoQ10（200-300mg）",
+              "preferred_form": "选择泛醇（还原型CoQ10）"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "dose_warnings",
+      "severity": "warning",
+      "description": "剂量警告：长期高剂量使用注意事项",
+      "rules": [
+        {
+          "supplement": "vitamin_d3",
+          "high_dose_threshold": 4000,
+          "warning": "长期每日超过4000IU可能增加高钙血症风险",
+          "recommendation": "每3个月检测血清25(OH)D和钙水平"
+        },
+        {
+          "supplement": "zinc",
+          "high_dose_threshold": 40,
+          "warning": "长期每日超过40mg可能导致铜缺乏",
+          "recommendation": "超过30mg/日时建议同时补充铜（1-2mg）"
+        },
+        {
+          "supplement": "iron",
+          "high_dose_threshold": 45,
+          "warning": "长期高剂量铁可能引起氧化应激和器官损伤",
+          "recommendation": "补充前检测铁蛋白，达标后减少剂量"
+        },
+        {
+          "supplement": "vitamin_c",
+          "high_dose_threshold": 2000,
+          "warning": "超过2000mg/日可能增加肾结石风险（草酸钙型）",
+          "recommendation": "有肾结石病史者限制在500mg以下"
+        }
+      ]
+    }
+  ]
+}

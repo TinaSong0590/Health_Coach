@@ -1,0 +1,129 @@
+{
+  "name": "Health Coach",
+  "version": "0.1.0",
+  "description": "个性化健康建议系统，支持多阶段补充剂和饮食推荐，内置智能冲突检测",
+  "author": "knan",
+  "capabilities": [
+    {
+      "name": "gene_report_analysis",
+      "description": "分析基因报告，识别营养代谢相关变异",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "gene_report": {
+            "type": "string",
+            "description": "基因报告文件路径或PDF文本内容"
+          }
+        }
+      }
+    },
+    {
+      "name": "supplement_recommendation",
+      "description": "根据用户阶段和基因报告推荐补充剂方案",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": ["general", "preconception", "fat_loss", "muscle_gain", "jetlag_travel", "recovery"],
+            "description": "用户当前阶段"
+          },
+          "gene_report": {
+            "type": "string",
+            "description": "基因报告（可选）"
+          }
+        }
+      }
+    },
+    {
+      "name": "diet_analysis",
+      "description": "分析饮食习惯并提供改进建议",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "diet_log": {
+            "type": "string",
+            "description": "饮食记录"
+          }
+        }
+      }
+    },
+    {
+      "name": "stage_based_planning",
+      "description": "基于不同阶段生成健康规划",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": ["general", "preconception", "fat_loss", "muscle_gain", "jetlag_travel", "recovery"],
+            "description": "目标阶段"
+          },
+          "duration_days": {
+            "type": "integer",
+            "description": "规划天数",
+            "default": 30
+          }
+        }
+      }
+    },
+    {
+      "name": "safety_conflict_check",
+      "description": "检测补充剂、饮食、基因报告间的潜在冲突",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "supplements": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "补充剂列表"
+          },
+          "diet_foods": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "饮食食物列表"
+          },
+          "gene_variants": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "基因变异数据"
+          }
+        }
+      }
+    }
+  ],
+  "stages": [
+    {
+      "id": "general",
+      "name": "普通期",
+      "description": "日常健康维护"
+    },
+    {
+      "id": "preconception",
+      "name": "备孕/孕期",
+      "description": "计划怀孕或孕期女性"
+    },
+    {
+      "id": "fat_loss",
+      "name": "减脂期",
+      "description": "减重目标人群"
+    },
+    {
+      "id": "muscle_gain",
+      "name": "增肌期",
+      "description": "健身增肌人群"
+    },
+    {
+      "id": "jetlag_travel",
+      "name": "倒时差/旅行",
+      "description": "频繁出差或旅行者"
+    },
+    {
+      "id": "recovery",
+      "name": "恢复期",
+      "description": "疾病或术后恢复人群"
+    }
+  ],
+  "main": "main.py",
+  "mcp_server": "tools/mcp_server.py"
+}
